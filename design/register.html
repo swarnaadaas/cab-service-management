@@ -7,6 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="vendor/bootstrap-5.2.2-dist/css/bootstrap.min.css" type="text/css">
 
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -125,39 +126,95 @@
     }
   }
       </style>    
-      <form action="login.html" method="post">
+      <form action="login.html" method="post" onsubmit="validateform(event)" id="regform" name="regform">
         <h2><center>Register Here</center></h2>
           <div class="imgcontainer">
           </div>
         
           <div class="container">
-            <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter your Name" name="name" required>
+            <label>Name</label>
+            <input type="text" placeholder="Enter your full name" name="name" class="form-control" minlength="3" >
+            
+            <label>Phone Number</label>
+            <input type="number" placeholder="Enter your phone number" name="phone" class="form-control" minlength="10" >
 
-            <label for="email"><b>Email Address</b></label>
-            <input type="email" placeholder="Enter your email" name="email" required><br>
-        
-            <label for="gender"><b>Gender&nbsp;&nbsp;</b></label>
-            <input type="radio" value="male" name="gender" required>Male&nbsp;&nbsp;
-            <input type="radio"  value="female" name="gender" required>Female<br><br>
+            <label>Gender&nbsp;&nbsp;</label>
+            <input type="radio" value="male" name="gender" >Male&nbsp;&nbsp;
+            <input type="radio"  value="female" name="gender" checked>Female<br><br>
 
-            <label for="address"><b>Address</b></label>
-            <input type="text" placeholder="Enter your address" name="address" required>
-
+            <!-- <label for="address"><b>Address</b></label>
+            <input type="text" placeholder="Enter your address" name="address" class="form-control" required> -->
+          <!-- 
             <label for="dob"><b>Date of Birth</b></label>
-            <input type="date"  name="dob" required>
+            <input type="date"  name="dob" required> -->
 
-            <label for="phone"><b>Phone Number</b></label>
-            <input type="number" placeholder="Enter your number" name="phone" required><br>
+            <!-- <label for="photo">Upload photo </label>
+            <input type="file" id="photo" name="photo" class="form-control" accept="image/*" /> -->
+            <label>Username (email)</label>
+            <input type="email" placeholder="Enter your email" name="uname" class="form-control" minlength="5" maxlength="50" >
 
-            <label for="photo">Upload photo </label>
-            <input type="file" id="photo" name="photo" accept="image/*" />
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Set a password"  >
+                
+                        
+            <label>Confirm Password</label>
+            <input type="password" name="cpassword" class="form-control" placeholder="Re-enter the password"  minlength="8" maxlength="25" >
+                        
 
-        
-            <button type="submit" href="login.html"> Register</button>
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-primary shadow" id="btn-login" href="login.html" >Register</button>
+            </div>
           </div>
         </form>
   </main>
+
+  <script>
+   function validateform(e){
+   var name=document.forms['regform']['name'].value; 
+   var phone=document.forms['regform']['phone'].value;  
+   var uname=document.forms['regform']['uname'].value; 
+   var password=document.forms['regform']['password'].value;
+   var cpassword=document.forms['regform']['cpassword'].value;  
+  
+
+    // alert(uname);
+    e.preventDefault();
+    if (name=="") {  
+      alert("Enter your name!");  
+      return false;  
+    }
+     if(phone==""){
+        alert("Enter  phone number!");
+        return false;  
+      }
+     if(phone.length<10){
+        alert("Enter valid phone number!");
+        return false;  
+      }
+     if(uname==""){
+        alert("Enter your username!");
+        return false;  
+      }
+     if(password==""){  
+      alert("Enter your password!");
+      return false;  
+      }  
+     if(password.length<6){  
+      alert("Password must 6 digit long!");
+      return false;  
+      }  
+     if(cpassword==""){  
+      alert("Fill confirm password!");
+      return false;  
+      }  
+      
+     if(cpassword!=password){  
+      alert("confirm password must be same as password!");
+      return false;  
+      }  
+      return true;
+    }  
+  </script>
   <footer>
     <!-- place footer here -->
   </footer>
@@ -169,6 +226,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
+  
 </body>
 
 </html>
