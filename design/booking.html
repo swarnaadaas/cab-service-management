@@ -125,7 +125,7 @@
     }
   }
       </style>    
-      <form action="login.html" method="post" onsubmit="validateform(event)" id="bookingform" name="bookingform">
+      <form id="bookingform" name="bookingform" action="login.html" method="post" onsubmit="validateform(event)">
         <h2><center>Book Here</center></h2>
           <div class="imgcontainer">
           </div>
@@ -166,22 +166,27 @@
     function validateform(e){
     var pick=document.forms['bookingform']['pick'].value;  
     var desti=document.forms['bookingform']['desti'].value;  
-     // alert(uname);
      e.preventDefault();
+     var isValid = true;
      if(pick==""){
          alert("Enter your pickup point!");
+         isValid = false;  
          return false;  
        }
       if(desti==""){  
        alert("Enter your destination place!");
+       isValid = false;  
        return false;  
        } 
-      if(pick="desti"){  
+      if(pick==desti){  
       alert("pickup point & distination point must not be same!");
+      isValid = false;  
       return false;  
       }  
-       return true;
-     }  
+      if(isValid){
+        document.forms['bookingform'].submit();
+      }     
+   }  
      </script>
 </body>
 
