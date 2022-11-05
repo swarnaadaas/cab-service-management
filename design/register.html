@@ -126,21 +126,21 @@
     }
   }
       </style>    
-      <form action="login.html" method="post" onsubmit="validateform(event)" id="regform" name="regform">
+      <form id="regform" name="regform" action="login.html" method="post" onsubmit="validateform(event)" >
         <h2><center>Register Here</center></h2>
           <div class="imgcontainer">
           </div>
         
           <div class="container">
             <label>Name</label>
-            <input type="text" placeholder="Enter your full name" name="name" class="form-control" minlength="3" >
+            <input type="text" placeholder="Enter your full name" name="name" id="name" class="form-control" minlength="3" >
             
             <label>Phone Number</label>
-            <input type="number" placeholder="Enter your phone number" name="phone" class="form-control" minlength="10" >
+            <input type="number" placeholder="Enter your phone number" name="phone" id="phone" class="form-control" minlength="10" >
 
-            <label>Gender&nbsp;&nbsp;</label>
+            <!-- <label>Gender&nbsp;&nbsp;</label>
             <input type="radio" value="male" name="gender" >Male&nbsp;&nbsp;
-            <input type="radio"  value="female" name="gender" checked>Female<br><br>
+            <input type="radio"  value="female" name="gender" checked>Female<br><br> -->
 
             <!-- <label for="address"><b>Address</b></label>
             <input type="text" placeholder="Enter your address" name="address" class="form-control" required> -->
@@ -151,18 +151,18 @@
             <!-- <label for="photo">Upload photo </label>
             <input type="file" id="photo" name="photo" class="form-control" accept="image/*" /> -->
             <label>Username (email)</label>
-            <input type="email" placeholder="Enter your email" name="uname" class="form-control" minlength="5" maxlength="50" >
+            <input type="email" placeholder="Enter your email" name="uname" id="uname" class="form-control" minlength="5" maxlength="50" >
 
             <label>Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Set a password"  >
+            <input type="password" name="password" id="password" class="form-control" placeholder="Set a password"  >
                 
                         
             <label>Confirm Password</label>
-            <input type="password" name="cpassword" class="form-control" placeholder="Re-enter the password"  minlength="8" maxlength="25" >
+            <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Re-enter the password"  minlength="8" maxlength="25" >
                         
 
             <div class="d-grid mt-4">
-              <button type="submit" class="btn btn-primary shadow" id="btn-login" href="login.html" >Register</button>
+              <button type="submit" class="btn btn-primary shadow" id="login">Register</button>
             </div>
           </div>
         </form>
@@ -170,6 +170,8 @@
 
   <script>
    function validateform(e){
+    e.preventDefault();
+    // alert();
    var name=document.forms['regform']['name'].value; 
    var phone=document.forms['regform']['phone'].value;  
    var uname=document.forms['regform']['uname'].value; 
@@ -178,41 +180,52 @@
   
 
     // alert(uname);
-    e.preventDefault();
+    var isValid = true;
     if (name=="") {  
       alert("Enter your name!");  
-      return false;  
+      isValid = false;  
+      return false;
     }
      if(phone==""){
         alert("Enter  phone number!");
+        isValid = false;
         return false;  
       }
      if(phone.length<10){
         alert("Enter valid phone number!");
-        return false;  
+        isValid = false;  
+        return false;
       }
      if(uname==""){
         alert("Enter your username!");
-        return false;  
+        isValid = false;  
+        return false;
       }
      if(password==""){  
       alert("Enter your password!");
-      return false;  
+      isValid = false;  
+      return false;
       }  
      if(password.length<6){  
       alert("Password must 6 digit long!");
-      return false;  
+      isValid = false; 
+      return false; 
       }  
      if(cpassword==""){  
       alert("Fill confirm password!");
-      return false;  
+      isValid = false; 
+      return false; 
       }  
       
      if(cpassword!=password){  
       alert("confirm password must be same as password!");
+      isValid = false;
       return false;  
       }  
-      return true;
+
+      if(isValid){
+        document.forms['regform'].submit();
+      }
     }  
   </script>
   <footer>
