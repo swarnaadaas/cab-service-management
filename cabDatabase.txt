@@ -1,0 +1,49 @@
+-----------------------
+CAB SERVICE MANAGEMENT 
+-----------------------
+
+create database cab_service;
+use cab_service;
+
+create table tbl_cab
+(cab_no int primary key auto_increment,
+cab_name varchar(50),
+cab_des varchar(200),
+cab_cap int
+);
+
+create table tbl_passenger
+(p_id int primary key auto_increment,
+name varchar(50),
+user_name varchar(50),
+email varchar(50),
+password varchar(50),
+mobile int,
+address varchar(100),
+dob date
+);
+
+create table tbl_schedule
+(s_id int primary key auto_increment,
+cab_from varchar(50),
+cab_to varchar(50),
+cab_date date,
+cab_time time,
+cost int,
+cab_no int, 
+foreign key(cab_no) references tbl_cab(cab_no) ,
+dob date
+);
+
+create table tbl_bticket
+(ticket_no int primary key auto_increment,
+booking_date date,
+travel_date date,
+cab_no int, foreign key(cab_no) references tbl_cab(cab_no) ,
+cab_from varchar(50),
+cab_to varchar(50),
+cab_time time,
+boarding_time time,
+cab_seat int,
+p_id int, foreign key(p_id) references tbl_passenger(p_id)
+);
