@@ -126,7 +126,7 @@
     }
   }
       </style>    
-      <form action="booking.html" method="post"  onsubmit="validateform(event)" id="loginform" name="loginform">
+      <form  id="loginform" name="loginform" action="booking.html" method="post"  onsubmit="validateForm(event)">
         <h2><center>Login Here</center></h2>
           <div class="imgcontainer">
           </div>
@@ -165,24 +165,30 @@
   </script>
 
   <script>    
-   function validateform(e){
+   function validateForm(e){
+  
    var uname=document.forms['loginform']['uname'].value;  
    var password=document.forms['loginform']['password'].value;  
-    // alert(uname);
     e.preventDefault();
+    var isValid = true;
     if(uname==""){
         alert("Enter your username!");
+        isValid = false;  
         return false;  
       }
      if(password==""){  
       alert("Enter your password!");
+      isValid = false;  
       return false;  
       }  
-     if(password.length<6){  
+     if(password.length < 6){  
       alert("Password must 6 digit long!");
+      isValid = false;  
       return false;  
       }  
-      return true;
+      if(isValid){
+        document.forms['loginform'].submit();
+      }  
     }  
     </script>  
 </body>
