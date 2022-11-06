@@ -119,36 +119,31 @@
         
           <div class="container">
             <label>Name</label>
-            <input type="text" placeholder="Enter your full name" name="name" id="name" class="form-control" minlength="3" >
+            <input type = "text" placeholder = "Enter your full name" name = "name" id = "name" class = "form-control" minlength = "3" >
             
             <label>Phone Number</label>
-            <input type="number" placeholder="Enter your phone number" name="phone" id="phone" class="form-control" minlength="10" >
+            <input type = "number" placeholder = "Enter your phone number" name = "phone" id = "phone" class = "form-control" minlength = "10" >
 
-            <!-- <label>Gender&nbsp;&nbsp;</label>
-            <input type="radio" value="male" name="gender" >Male&nbsp;&nbsp;
-            <input type="radio"  value="female" name="gender" checked>Female<br><br> -->
+            <label>Gender&nbsp;&nbsp;</label>
+            <input type = "radio" value = "male" name = "gender" >Male&nbsp;&nbsp;
+            <input type = "radio"  value = "female" name = "gender" checked>Female<br><br>
 
-            <!-- <label for="address"><b>Address</b></label>
-            <input type="text" placeholder="Enter your address" name="address" class="form-control" required> -->
-          <!-- 
-            <label for="dob"><b>Date of Birth</b></label>
-            <input type="date"  name="dob" required> -->
+            <label for = "dob"><b>Date of Birth</b></label>
+            <input type = "date"  name = "dob" required>
 
-            <!-- <label for="photo">Upload photo </label>
-            <input type="file" id="photo" name="photo" class="form-control" accept="image/*" /> -->
             <label>Username (email)</label>
-            <input type="email" placeholder="Enter your email" name="uname" id="uname" class="form-control" minlength="5" maxlength="50" >
+            <input type = "email" placeholder = "Enter your email" name = "uname" id = "uname" class = "form-control" minlength = "5" maxlength = "50" >
 
             <label>Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Set a password"  >
+            <input type = "password" name = "password" id = "password" class = "form-control" placeholder = "Set a password" >
                 
                         
             <label>Confirm Password</label>
-            <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Re-enter the password"  minlength="8" maxlength="25" >
+            <input type = "password" name = "cpassword" id = "cpassword" class = "form-control" placeholder = "Re-enter the password"  minlength = "8" maxlength = "25" >
                         
 
             <div class="d-grid mt-4">
-              <button type="submit" class="btn btn-primary shadow" id="login">Register</button>
+              <button type = "submit" class = "btn btn-primary shadow" id = "login">Register</button>
             </div>
           </div>
         </form>
@@ -157,22 +152,19 @@
   <script>
    function validateform(e){
     e.preventDefault();
-    // alert();
-   var name=document.forms['regform']['name'].value; 
-   var phone=document.forms['regform']['phone'].value;  
-   var uname=document.forms['regform']['uname'].value; 
-   var password=document.forms['regform']['password'].value;
-   var cpassword=document.forms['regform']['cpassword'].value;  
+   var name = document.forms['regform']['name'].value; 
+   var phone = document.forms['regform']['phone'].value;  
+   var uname = document.forms['regform']['uname'].value; 
+   var password = document.forms['regform']['password'].value;
+   var cpassword = document.forms['regform']['cpassword'].value;  
   
-
-    // alert(uname);
-    var isValid = true;
-    if (name=="") {  
+     var isValid = true;
+    if (name == "") {  
       alert("Enter your name!");  
       isValid = false;  
       return false;
     }
-     if(phone==""){
+     if(phone == ""){
         alert("Enter  phone number!");
         isValid = false;
         return false;  
@@ -182,12 +174,12 @@
         isValid = false;  
         return false;
       }
-     if(uname==""){
+     if(uname == ""){
         alert("Enter your username!");
         isValid = false;  
         return false;
       }
-     if(password==""){  
+     if(password == ""){  
       alert("Enter your password!");
       isValid = false;  
       return false;
@@ -197,13 +189,13 @@
       isValid = false; 
       return false; 
       }  
-     if(cpassword==""){  
+     if(cpassword == ""){  
       alert("Fill confirm password!");
       isValid = false; 
       return false; 
       }  
       
-     if(cpassword!=password){  
+     if(cpassword != password){  
       alert("confirm password must be same as password!");
       isValid = false;
       return false;  
