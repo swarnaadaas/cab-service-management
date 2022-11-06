@@ -53,8 +53,6 @@
         </div>
       </div>
     </nav>
-   
-
   </header>
   <main>
     <body>
@@ -143,7 +141,6 @@
               <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
             <span class="psw">Forgot <a href="#">password?</a></span>
-
           </div>
         
           <div class="container" style="background-color:#f1f1f1">
@@ -167,16 +164,16 @@
   <script>    
    function validateForm(e){
   
-   var uname=document.forms['loginform']['uname'].value;  
-   var password=document.forms['loginform']['password'].value;  
+   var uname = document.forms['loginform']['uname'].value;  
+   var password = document.forms['loginform']['password'].value;  
     e.preventDefault();
     var isValid = true;
-    if(uname==""){
+    if(uname == ""){
         alert("Enter your username!");
         isValid = false;  
         return false;  
       }
-     if(password==""){  
+     if(password == ""){  
       alert("Enter your password!");
       isValid = false;  
       return false;  
