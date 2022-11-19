@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {{!--
+  <link rel="stylesheet" href="vendor/bootstrap-5.2.2-dist/css/bootstrap.min.css" type="text/css"> --}}
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!-- place navbar here -->
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">Home</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="register.html" aria-current="page">Register <span
+                class="visually-hidden">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="login.html" aria-current="page">Login <span
+                class="visually-hidden">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="booking.html" aria-current="page">Booking <span
+                class="visually-hidden">(current)</span></a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+          <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#">Action 1</a>
+                <a class="dropdown-item" href="#">Action 2</a>
+              </div>
+            </li> -->
+        </ul>
+        <!-- <form class="d-flex my-2 my-lg-0">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+      </div>
+    </div>
+  </nav>
+
+  <body>
+    <style>
+      body {
+        background-color: lightblue;
+        background-image: url(register.jfif);
+        background-size: cover;
+      }
+
+      form {
+        border: 3px solid #f1f1f1;
+        margin-left: 30%;
+        margin-top: 5%;
+        margin-bottom: 10%;
+        width: 40%;
+        height: 30%;
+        background-color: white;
+        padding: 30px;
+      }
+
+      input[type=text],
+      input[type=password],
+      input[type=email],
+      input[type=number],
+      input[type=date],
+      input[type=file] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #719fe4;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+
+      .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+      }
+
+      .container {
+        padding: 14px;
+      }
+
+      span.psw {
+        float: right;
+        padding-top: 16px;
+
+      }
+
+      @media screen and (max-width: 300px) {
+        span.psw {
+          display: block;
+          float: none;
+        }
+
+        .cancelbtn {
+          width: 100%;
+        }
+      }
+    </style>
+    <form id="regform" name="regform" action="login.html" method="post" onsubmit="validateform(event)">
+      <h2>
+        <center>Register Here</center>
+      </h2>
+      <div class="imgcontainer">
+      </div>
+
+      <div class="container">
+        <label>Name</label>
+        <input type="text" placeholder="Enter your full name" name="name" id="name" class="form-control" minlength="3">
+
+        <label>Username (email)</label>
+        <input type="email" placeholder="Enter your email" name="uname" id="uname" class="form-control" minlength="5"
+          maxlength="50">
+
+        <label>Phone Number</label>
+        <input type="number" placeholder="Enter your phone number" name="phone" id="phone" class="form-control"
+          minlength="10">
+
+        <label>Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Set a password">
+
+        <label>Confirm Password</label>
+        <input type="password" name="cpassword" id="cpassword" class="form-control" placeholder="Re-enter the password"
+          minlength="8" maxlength="25">
+        {{#if result}}
+        {{#if result.success}}
+        <div class="alert alert-success">
+          Registered successfully.
+        </div>
+        {{else}}
+        <div class="alert alert-danger">
+          Unable to register.
+        </div>
+        {{/if}}
+        {{/if}}
+
+        <div class="d-grid mt-4">
+          <button type="submit" class="btn btn-primary shadow" id="login">Register</button>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      function validateform(e) {
+        e.preventDefault();
+        // alert();
+        var name = document.forms['regform']['name'].value;
+        var phone = document.forms['regform']['phone'].value;
+        var uname = document.forms['regform']['uname'].value;
+        var password = document.forms['regform']['password'].value;
+        var cpassword = document.forms['regform']['cpassword'].value;
+
+
+        // alert(uname);
+        var isValid = true;
+        if (name == "") {
+          alert("Enter your name!");
+          isValid = false;
+          return false;
+        }
+        if (phone == "") {
+          alert("Enter  phone number!");
+          isValid = false;
+          return false;
+        }
+        if (phone.length < 10) {
+          alert("Enter valid phone number!");
+          isValid = false;
+          return false;
+        }
+        if (uname == "") {
+          alert("Enter your username!");
+          isValid = false;
+          return false;
+        }
+        if (password == "") {
+          alert("Enter your password!");
+          isValid = false;
+          return false;
+        }
+        if (password.length < 6) {
+          alert("Password must 6 digit long!");
+          isValid = false;
+          return false;
+        }
+        if (cpassword == "") {
+          alert("Fill confirm password!");
+          isValid = false;
+          return false;
+        }
+
+        if (cpassword != password) {
+          alert("confirm password must be same as password!");
+          isValid = false;
+          return false;
+        }
+
+        if (isValid) {
+          document.forms['regform'].submit();
+        }
+      }  
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+      </script>
+
+  </body>
+
+</html>

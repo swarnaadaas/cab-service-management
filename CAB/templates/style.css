@@ -1,0 +1,51 @@
+.video{
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index:-1;
+    /* background-size: cover; */
+    object-fit: cover;
+}
+/* .body{
+
+} */
+.topnav {
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+        top:10px;   
+    left:100px;
+  }
+  .con{
+    position: relative;
+    top:250px;
+  }
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: rgb(212, 135, 135);
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  .main{
+    display: flex;
+  }
+ 
